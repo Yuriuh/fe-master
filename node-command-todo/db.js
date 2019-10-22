@@ -31,14 +31,4 @@ const db = {
   }
 }
 
-// const task = {
-//   title: title,
-//   done: false
-// }
-// list.push(task)
-// const string = JSON.stringify(list)
-// fs.writeFile(dbPath, string + '\n', (error3) => {
-//   if (error3) console.log(error3)
-// })
-
 module.exports = db
