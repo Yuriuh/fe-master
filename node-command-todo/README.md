@@ -6,12 +6,11 @@ yarn global add node-command-todo
 ```
 
 # Instruction
+a command line todo application
 
 # Usage
 ```
-add
+t add <todo_thing>
 
-clear
-
-showAll
+t clear
 ```
