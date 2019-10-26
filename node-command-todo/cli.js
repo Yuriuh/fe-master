@@ -1,8 +1,10 @@
 #!/usr/bin/env node
 const program = require('commander');
 const api = require('./api.js')
+const pkg = require('./package.json')
 
 program
+  .version(pkg.version)
   .option('-x, --xxx', 'what the x');
 
 program

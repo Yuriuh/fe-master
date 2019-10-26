@@ -1,6 +1,6 @@
 {
   "name": "node-command-todo",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "bin": {
     "t": "cli.js"
   },
@@ -13,5 +13,9 @@
   },
   "keywords": ["node", "command", "todo"],
   "author": "Yuriuh",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "commander": "3.0.2",
+    "inquirer": "7.0.0"
+  }
 }
