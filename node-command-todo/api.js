@@ -1,18 +1,19 @@
 const db = require('./db')
 const inquirer = require('inquirer')
 
-// 面向接口编程
 module.exports.add = async (title) => {
-  // 读取之前的任务
   const list = await db.read()
-  // 往里面添加一个 title 任务
   list.push({title, done: false})
-  // 存储任务到文件
   db.write(list)
 }
 
 module.exports.clear = async (title) => {
   await db.write([])
+}
+
+module.exports.showAll = async (title) => {
+  const list = await db.read()
+  printTasks(list)
 }
 
 function printTasks(list) {
@@ -26,7 +27,6 @@ function printTasks(list) {
         ...list.map((task, index) => {
           return {
             name: `${task.done ? '[x]' : '[_]'} ${index + 1} - ${task.title}`,
-            // value 必须是字符串
             value: index.toString()
           }
         }),
@@ -36,10 +36,8 @@ function printTasks(list) {
     .then(answer => {
       const index = parseInt(answer.index)
       if (answer.index >= 0) {
-        // 选中了一个任务
         askForAction(list, index)
       } else if (index === -2) {
-        // 创建任务
         askForCreateTask(list)
       }
     })
@@ -103,11 +101,4 @@ function askForCreateTask(list) {
     })
     db.write(list)
   })
-}
-
-module.exports.showAll = async (title) => {
-  // 读取之前的任务
-  const list = await db.read()
-  // 打印之前的任务
-  printTasks(list)
 }
