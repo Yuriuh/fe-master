@@ -1,5 +1,5 @@
 const program = require('commander');
-const api = require('./index.js')
+const api = require('./api.js')
 
 program
   .option('-x, --xxx', 'what the x');
