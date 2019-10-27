@@ -9,13 +9,21 @@
   ],
   "main": "api.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
-  "keywords": ["node", "command", "todo"],
+  "keywords": [
+    "node",
+    "command",
+    "todo"
+  ],
   "author": "Yuriuh",
   "license": "ISC",
   "dependencies": {
     "commander": "3.0.2",
     "inquirer": "7.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.20",
+    "jest": "^24.9.0"
   }
 }

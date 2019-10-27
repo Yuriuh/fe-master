@@ -7,7 +7,7 @@ const dbPath = p.join(home, '.todo')
 const db = {
   read(path = dbPath) {
     return new Promise((resolve, reject) => {
-      fs.readFile(dbPath, { flag: 'a+' }, (error, data) => {
+      fs.readFile(path, { flag: 'a+' }, (error, data) => {
         // if 扁平化技巧 return error
         if (error) return reject(error)
         let list
@@ -23,7 +23,7 @@ const db = {
   write(list, path = dbPath) {
     return new Promise((resolve, reject) => {
       const string = JSON.stringify(list)
-      fs.writeFile(dbPath, string + '\n', error => {
+      fs.writeFile(path, string + '\n', error => {
         if (error) return reject(error)
         resolve()
       })
