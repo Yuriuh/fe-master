@@ -1,12 +1,21 @@
 {
   "name": "node-command-todo",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.0.3",
+  "bin": {
+    "t": "cli.js"
+  },
+  "files": [
+    "*.js"
+  ],
+  "main": "api.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "keywords": ["node", "command", "todo"],
+  "author": "Yuriuh",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "3.0.2",
+    "inquirer": "7.0.0"
+  }
 }
