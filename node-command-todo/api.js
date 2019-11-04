@@ -23,14 +23,14 @@ function printTasks(list) {
       name: 'index',
       message: '请选择你想操作的任务',
       choices: [
-        {name: '退出', value: '-1'},
+        { name: '退出', value: '-1' },
         ...list.map((task, index) => {
           return {
             name: `${task.done ? '[x]' : '[_]'} ${index + 1} - ${task.title}`,
             value: index.toString()
           }
         }),
-        {name: '+创建任务', value: '-2'}
+        { name: '+创建任务', value: '-2' }
       ]
     })
     .then(answer => {
@@ -71,17 +71,17 @@ function removeTask(list, index) {
 }
 
 function askForAction(list, index) {
-  const actions = {markAsDone, markAsUndone, removeTask, updateTitle}
+  const actions = { markAsDone, markAsUndone, removeTask, updateTitle }
   inquirer.prompt({
     type: 'list',
     name: 'action',
     message: '请选择操作',
     choices: [
-      {name: '退出', value: 'quit'},
-      {name: '已完成', value: 'markAsDone'},
-      {name: '未完成', value: 'markAsUndone'},
-      {name: '改标题', value: 'updateTitle'},
-      {name: '删除', value: 'remove'},
+      { name: '退出', value: 'quit' },
+      { name: '已完成', value: 'markAsDone' },
+      { name: '未完成', value: 'markAsUndone' },
+      { name: '改标题', value: 'updateTitle' },
+      { name: '删除', value: 'removeTask' },
     ]
   }).then(answer => {
     const action = actions[answer.action]
