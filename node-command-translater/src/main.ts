@@ -53,8 +53,7 @@ export const translate = (word: String) => {
       const string = Buffer.concat(chunks).toString()
       type BaiduResult = {
         error_code?: string
-        // error_msg?: string
-        error_msg: string
+        error_msg?: string
         from: string
         to: string
         trans_result: {
@@ -64,7 +63,7 @@ export const translate = (word: String) => {
       }
       const object: BaiduResult = JSON.parse(string)
       if (object.error_code) {
-        console.error(errorMap[object.error_msg] || object.error_msg)
+        console.error(errorMap[object.error_msg!] || object.error_msg)
         process.exit(2)
       } else {
         object.trans_result.forEach(o => {
